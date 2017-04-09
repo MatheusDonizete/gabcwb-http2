@@ -1,0 +1,5 @@
+node_modules
+.DS_Store
+server.crt
+server.csr
+server.key
