@@ -3,3 +3,4 @@ node_modules
 server.crt
 server.csr
 server.key
+npm-debug.log
