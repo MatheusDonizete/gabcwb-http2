@@ -16,6 +16,25 @@ const server = spdy.createServer(options, app);
         ssl: false
     }
 });*/
+
+app.use(function(req, res, next) {
+    if (!req.headers['x-forwarded-proto']) {
+        if (req.headers['x-arr-ssl'] || req.headers['x-iisnode-https'] === 'on') {
+            req.headers['x-forwarded-proto'] = 'https';
+        }
+    }
+
+    next();
+});
+
+app.use(function httpOnly(req, res, next) {
+    if (req.protocol === 'http' && process.env.NODE_ENV && process.env.NODE_ENV != 'development') {
+        return res.redirect(301, 'https://' + req.get('host') + req.url);
+    }
+
+    next();
+})
+
 app.get('/', (req, res) => {
     const pageHTML = fs.readFileSync(`${__dirname}/static/index.html`);
     const jsOptions = {
