@@ -2,10 +2,10 @@
     "name": "gabcwb-http2",
     "version": "1.0.0",
     "description": "Global Azure Bootcamp Curitiba HTTP/2 Example",
-    "main": "index.js",
+    "main": "server.js",
     "scripts": {
-        "start:dev": "./node_modules/.bin/nodemon index.js",
-        "start": "./node_modules/.bin/pm2 start index.js",
+        "start:dev": "./node_modules/.bin/nodemon server.js",
+        "start": "./node_modules/.bin/pm2 start server.js",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "repository": {
