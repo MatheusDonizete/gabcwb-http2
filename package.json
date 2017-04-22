@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {
         "start:dev": "./node_modules/.bin/nodemon index.js",
-        "start": "node index.js",
+        "start": "./node_modules/.bin/pm2 start index.js",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "repository": {
@@ -25,6 +25,7 @@
     "homepage": "https://github.com/MatheusDonizete/gabcwb-http2#readme",
     "dependencies": {
         "express": "^4.15.2",
+        "pm2": "^2.4.5",
         "spdy": "^3.4.4"
     },
     "devDependencies": {
