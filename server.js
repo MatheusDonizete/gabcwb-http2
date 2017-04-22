@@ -10,13 +10,6 @@ const options = {
 };
 
 const server = spdy.createServer(options, app);
-/*const server = spdy.createServer({
-    spdy: {
-        plain: true,
-        ssl: false
-    }
-});*/
-
 app.use(function(req, res, next) {
     if (!req.headers['x-forwarded-proto']) {
         if (req.headers['x-arr-ssl'] || req.headers['x-iisnode-https'] === 'on') {
